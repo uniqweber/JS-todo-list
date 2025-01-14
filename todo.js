@@ -17,7 +17,7 @@ function addTodo() {
   todoItem.innerHTML = `   
   <div class="flex justify-between items-center gap-2 pt-4 border-gray-700">
         <div class="flex items-center truncate w-full  gap-2 ">
-            <input type="checkbox" class="h-4 w-4 bg-gray-900 border-gray-700 rounded-full cursor-pointer border duration-300 checked:border-blue-500 checked:bg-blue-500  appearance-none" />
+            <input type="checkbox" class="h-4 w-4 flex-shrink-0 bg-gray-900 border-gray-700 rounded-full cursor-pointer border duration-300 checked:border-blue-500 checked:bg-blue-500  appearance-none" />
             <span id="todoText" >${todoText}</span>
         </div>
         <div class="flex-shrink-0">
