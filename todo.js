@@ -17,12 +17,12 @@ function addTodo() {
   todoItem.innerHTML = `   
   <div class="flex justify-between items-center gap-2 pt-4 border-gray-700">
         <div class="flex items-center truncate w-full  gap-2 ">
-            <input type="checkbox" class="checkbox" />
-            <span id="todoText" class="text-wrap">${todoText}</span>
+            <input type="checkbox" class="h-4 w-4 bg-gray-900 border-gray-700 rounded-full cursor-pointer border duration-300 checked:border-blue-500 checked:bg-blue-500  appearance-none" />
+            <span id="todoText" >${todoText}</span>
         </div>
         <div class="flex-shrink-0">
-            <button id="edit" class="btn btn-primary">Edit</button>
-            <button id="delete"  class="btn btn-error">Delete</button>
+            <button id="edit" class="px-3 text-sm bg-cyan-600 py-2 rounded-md">Edit</button>
+                <button id="delete" class="px-3 text-sm bg-red-600 py-2 rounded-md">Delete</button>
         </div>
  </div>`;
   checkboxCheck(todoItem);
@@ -36,12 +36,12 @@ function addTodo() {
 }
 
 function checkboxCheck(todoItem) {
-  const checkbox = todoItem.querySelector(".checkbox");
+  const checkbox = todoItem.querySelector("input[type='checkbox']");
   const inputText = todoItem.querySelector("#todoText");
   checkbox.addEventListener("change", function () {
     if (checkbox.checked) {
       inputText.classList.add("line-through");
-      inputText.classList.add("text-red-500");
+      inputText.classList.add("text-blue-500");
     } else {
       inputText.classList.remove("line-through");
       inputText.classList.remove("text-red-500");
@@ -55,12 +55,13 @@ function editTodo(todoItem) {
   editButton.addEventListener("click", () => {
     todoInput.value = inputText.textContent;
     todoButton.textContent = "Update";
-    todoButton.classList.remove("btn-primary");
-    todoButton.classList.add("btn-success");
+    todoButton.classList.remove("bg-blue-500");
+    todoButton.classList.add("bg-green-500");
     todoContainer.removeChild(todoItem);
   });
   todoButton.textContent = "Add";
-  todoButton.classList.remove("btn-success");
+  todoButton.classList.remove("bg-green-500");
+  todoButton.classList.add("bg-blue-500");
 }
 
 function deleteTodo(todoItem) {
